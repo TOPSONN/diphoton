@@ -980,27 +980,32 @@ void data(int &events) {
 	int nPho ;
 	int nJet ;
 	int lumis;
+Float_t VBS_phopt[100]= { 0 }, VBS_phoeta[100]= { 0 }, VBS_phophi[100]= { 0 }, VBS_phom[100]= { 0 };
+Float_t VBS_r9[100]= { 0 }, VBS_hoe[100]= { 0 }, VBS_phiso[100]= { 0 }, VBS_chiso[100]= { 0 }, VBS_sieie[100]= { 0 } , VBS_Photon_mvaID[100]= { 0 } ;
+Float_t VBS_jetpt[100]= { 0 }, VBS_jeteta[100]= { 0 }, VBS_jetphi[100]= { 0 }, VBS_jetm[100]= { 0 };
 
+Bool_t VBS_HLT_Diphoton_14 , VBS_HLT_Diphoton_15 , VBS_HLT_Diphoton_16 , VBS_HLT_Diphoton_17 ;
+	DataTree->SetBranchAddress("Photon_pt",   &VBS_phopt  );
+	DataTree->SetBranchAddress("Photon_eta",   &VBS_phoeta  );
+	DataTree->SetBranchAddress("Photon_phi",   &VBS_phophi  );
+	DataTree->SetBranchAddress("Photon_mass",   &VBS_phom  );
 
-	DataTree->SetBranchAddress("lumis", &lumis);
+	DataTree->SetBranchAddress("Photon_r9",   &VBS_r9  );
+	DataTree->SetBranchAddress("Photon_hoe",   &VBS_hoe  );
+	DataTree->SetBranchAddress("Photon_pfRelIso03_all",   &VBS_phiso  );
+	DataTree->SetBranchAddress("Photon_pfRelIso03_chg",   &VBS_chiso  );
+	DataTree->SetBranchAddress("Photon_sieie",   &VBS_sieie  );
+	DataTree->SetBranchAddress("Photon_mvaID",   &VBS_Photon_mvaID  );
+	
+	DataTree->SetBranchAddress("Jet_pt",   &VBS_jetpt  );
+	DataTree->SetBranchAddress("Jet_eta",   &VBS_jeteta  );
+	DataTree->SetBranchAddress("Jet_phi",   &VBS_jetphi  );
+	DataTree->SetBranchAddress("Jet_mass",   &VBS_jetm  );
+	
+	DataTree->SetBranchAddress("HLT_Diphoton30_22_R9Id_OR_IsoCaloId_AND_HE_R9Id_Mass90",   &VBS_HLT_Diphoton_14  );
+	DataTree->SetBranchAddress("HLT_Diphoton30PV_18PV_R9Id_AND_IsoCaloId_AND_HE_R9Id_NoPixelVeto_Mass55",   &VBS_HLT_Diphoton_17  );
+	
 
-	DataTree->SetBranchAddress("nPho", &nPho);
-	DataTree->SetBranchAddress("phoE", &PhoE);
-	DataTree->SetBranchAddress("phoEt", &PhoEt);
-	DataTree->SetBranchAddress("phoEta", &PhoEta);
-	DataTree->SetBranchAddress("phoPhi", &PhoPhi);
-
-	DataTree->SetBranchAddress("nJet", &nJet);
-	DataTree->SetBranchAddress("jetMt", &JetMt);
-	DataTree->SetBranchAddress("jetPt", &JetPt);
-	DataTree->SetBranchAddress("jetEta", &JetEta);
-	DataTree->SetBranchAddress("jetPhi", &JetPhi);
-
-	DataTree->SetBranchAddress("phoHoverE", &phoHoverE);
-	DataTree->SetBranchAddress("phoR9", &phoR9);
-	DataTree->SetBranchAddress("phoSigmaIEtaIEtaFull5x5", &phoSigmaIEtaIEta);
-	DataTree->SetBranchAddress("phoPFChIso", &phoPFChIso);
-	DataTree->SetBranchAddress("phoIDMVA", &phoIDMVA);
 
 	events = DataTree->GetEntries() ;
 	cout << "      +++++++++++++++            " <<endl;
